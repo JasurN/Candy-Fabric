@@ -22,7 +22,9 @@ import javax.swing.JFrame;
       
         MainFrame mainFrame = new MainFrame();
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainFrame.setVisible(true);
+       mainFrame.pack();
+    mainFrame.setLocationRelativeTo(null);
+    mainFrame.setVisible(true);
        
     }
     
