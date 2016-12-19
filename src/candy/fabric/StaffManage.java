@@ -576,6 +576,7 @@ javax.swing.table.DefaultTableModel tableModel = new javax.swing.table.DefaultTa
             }
         );
 private void showTableResult(){
+ tableModel.setRowCount(0);
     DatabaseConnection databaseConnection =new DatabaseConnection();
     String query = "SELECT StuffID, FirstName, LastName, EmailAddress FROM StuffTable";
         ResultSet resultSet = databaseConnection.getData(query);
