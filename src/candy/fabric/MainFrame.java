@@ -122,6 +122,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void buttonForStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForStaffActionPerformed
         // TODO add your handling code here:
         StaffManage staffObj = new StaffManage();
+     
          staffObj.pack();
     staffObj.setLocationRelativeTo(null);
     staffObj.setVisible(true);
