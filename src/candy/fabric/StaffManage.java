@@ -345,38 +345,7 @@ public class StaffManage extends javax.swing.JFrame {
             e.printStackTrace();
         }
   
-        infoTable.repaint();
-         String querys = "SELECT StuffID, FirstName, LastName, EmailAddress FROM StuffTable";
-        ResultSet resultSet = databaseConnection.getData(querys);
-      //System.out.println(infoTable.getRowCount());
-        for(int i=0; i<infoTable.getRowCount();i++)
-        {
-            tableModel.removeRow(i);
-        }
-                
-        try
-        {
-            System.out.println("Stuff ID\tFirst Name\tLast Name\tEmail Address");
-            int i=0;
-            
-                while (resultSet.next()) 
-                {
-                    Object[] row = { null, null, null,null};
-                    tableModel.addRow(row);
-                    infoTable.setValueAt(resultSet.getString(1), i, 0);
-                    infoTable.setValueAt(resultSet.getString(2), i, 1);
-                    infoTable.setValueAt(resultSet.getString(3), i, 2);
-                    infoTable.setValueAt(resultSet.getString(4), i, 3);
-                    i++;
-//System.out.println(resultSet.getString(1)+"\t"+resultSet.getString(2)+"\t"+resultSet.getString(3));
-                }
-                    
-        }
-        catch(SQLException e)
-        {
-                System.out.println(e);
-        }  
-        
+       showTableResult();
         makeFormEmpty();
         
     }//GEN-LAST:event_buttonForUpdateActionPerformed
@@ -404,41 +373,7 @@ public class StaffManage extends javax.swing.JFrame {
 
     private void buttonForShowAllStuffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForShowAllStuffActionPerformed
                 // TODO add your handling code here:
-     DatabaseConnection databaseObj = new DatabaseConnection();
-        String query = "SELECT StuffID, FirstName, LastName, EmailAddress FROM StuffTable";
-        ResultSet resultSet = databaseObj.getData(query);
-        
-        infoTable.repaint();
-
-       
-       // System.out.println(infoTable.getRowCount());
-        for(int i=0; i<infoTable.getRowCount();i++)
-        {
-            tableModel.removeRow(i);
-        }
-                
-        try
-        {
-            System.out.println("Stuff ID\tFirst Name\tLast Name\tEmail Address");
-            int i=0;
-            
-                while (resultSet.next()) 
-                {
-                    Object[] row = { null, null, null,null};
-                    tableModel.addRow(row);
-                    infoTable.setValueAt(resultSet.getString(1), i, 0);
-                    infoTable.setValueAt(resultSet.getString(2), i, 1);
-                    infoTable.setValueAt(resultSet.getString(3), i, 2);
-                    infoTable.setValueAt(resultSet.getString(4), i, 3);
-                    i++;
-//System.out.println(resultSet.getString(1)+"\t"+resultSet.getString(2)+"\t"+resultSet.getString(3));
-                }
-                    
-        }
-        catch(SQLException e)
-        {
-                System.out.println(e);
-        }   
+   showTableResult();
     }//GEN-LAST:event_buttonForShowAllStuffActionPerformed
 
     private void jTextForPassportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextForPassportMouseClicked
@@ -608,6 +543,44 @@ javax.swing.table.DefaultTableModel tableModel = new javax.swing.table.DefaultTa
                 "StuffID", "FirstName", "LastName","EmailAddress"
             }
         );
+private void showTableResult(){
+    DatabaseConnection databaseConnection =new DatabaseConnection();
+    String query = "SELECT StuffID, FirstName, LastName, EmailAddress FROM StuffTable";
+        ResultSet resultSet = databaseConnection.getData(query);
+        
+        infoTable.repaint();
+
+       
+       // System.out.println(infoTable.getRowCount());
+        for(int i=0; i<infoTable.getRowCount();i++)
+        {
+            tableModel.removeRow(i);
+        }
+                
+        try
+        {
+            System.out.println("Stuff ID\tFirst Name\tLast Name\tEmail Address");
+            int i=0;
+            
+                while (resultSet.next()) 
+                {
+                    Object[] row = { null, null, null,null};
+                    tableModel.addRow(row);
+                    infoTable.setValueAt(resultSet.getString(1), i, 0);
+                    infoTable.setValueAt(resultSet.getString(2), i, 1);
+                    infoTable.setValueAt(resultSet.getString(3), i, 2);
+                    infoTable.setValueAt(resultSet.getString(4), i, 3);
+                    i++;
+//System.out.println(resultSet.getString(1)+"\t"+resultSet.getString(2)+"\t"+resultSet.getString(3));
+                }
+                    
+        }
+        catch(SQLException e)
+        {
+                System.out.println(e);
+        }   
+}
+
 private void makeFormEmpty() {
       jTextForID.setText(""); 
                 jTextForPassport.setText("");
