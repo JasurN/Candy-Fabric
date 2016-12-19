@@ -20,7 +20,7 @@ public class StaffManage extends javax.swing.JFrame {
      */
     public StaffManage() {
         initComponents();
-        getContentPane().setBackground(new Color( 59 , 63 , 66));
+        //getContentPane().setBackground(new Color( 59 , 63 , 66));
     }
 
     /**
@@ -60,6 +60,8 @@ public class StaffManage extends javax.swing.JFrame {
         jPassFieldForPassword = new javax.swing.JPasswordField();
         jLabelForPasswordConfirm = new javax.swing.JLabel();
         jPasswordFieldForPassworkConfirm = new javax.swing.JPasswordField();
+        jLabelForMessages = new javax.swing.JLabel();
+        jTextForMessages = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -277,6 +279,10 @@ public class StaffManage extends javax.swing.JFrame {
             }
         });
 
+        jLabelForMessages.setText("Messages");
+
+        jTextForMessages.setEditable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -316,17 +322,24 @@ public class StaffManage extends javax.swing.JFrame {
                             .addComponent(jComboToSelecType, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelForEmail)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jLabelForMessages)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextForMessages))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(buttonForSearch, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(buttonForDelete, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(buttonForUpdate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(buttonForShowAllStuff, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(buttonForCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(labelForEmail))
+                                    .addComponent(buttonForCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 18, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -369,9 +382,9 @@ public class StaffManage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelForEmail)
                     .addComponent(jTextForEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
                         .addComponent(buttonForCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonForSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -381,8 +394,13 @@ public class StaffManage extends javax.swing.JFrame {
                         .addComponent(buttonForUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonForShowAllStuff, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelForMessages)
+                    .addComponent(jTextForMessages, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pack();
@@ -415,12 +433,14 @@ public class StaffManage extends javax.swing.JFrame {
     private void buttonForCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForCreateActionPerformed
         // TODO add your handling code here:
         String stuffTypeString = jComboToSelecType.getSelectedItem().toString();
-    String passText = new String(jPassFieldForPassword.getPassword());
-       System.out.print(passText);
+    String passTextOriginal = new String(jPassFieldForPassword.getPassword());
+     String passTextCopy = new String(jPasswordFieldForPassworkConfirm.getPassword());
         DateOfBirth dateOfBirth = new DateOfBirth(jTextForDateOfBirth.getText());
         Person person = new Person(jTextForFirstName.getText(), jTextForLastName.getText(), jTextForPassport.getText(), dateOfBirth);
-        Stuff stuff = new Stuff(person, jTextForEmail.getText(), jTextForID.getText(),stuffTypeString);
+        Stuff stuff = new Stuff(person, jTextForEmail.getText(), jTextForID.getText(),stuffTypeString,passTextOriginal,passTextCopy);
+        if(passTextOriginal.equals(passTextCopy)){
         stuff.addStuff();
+        }
          makeFormEmpty();
     }//GEN-LAST:event_buttonForCreateActionPerformed
 
@@ -688,6 +708,7 @@ private void makeFormEmpty() {
     private javax.swing.JLabel dateFormatLabel;
     private javax.swing.JTable infoTable;
     private javax.swing.JComboBox<String> jComboToSelecType;
+    private javax.swing.JLabel jLabelForMessages;
     private javax.swing.JLabel jLabelForPassword;
     private javax.swing.JLabel jLabelForPasswordConfirm;
     private javax.swing.JLabel jLabelForStuffType;
@@ -700,6 +721,7 @@ private void makeFormEmpty() {
     private javax.swing.JTextField jTextForFirstName;
     private javax.swing.JTextField jTextForID;
     private javax.swing.JTextField jTextForLastName;
+    private javax.swing.JTextField jTextForMessages;
     private javax.swing.JTextField jTextForPassport;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel labelForDateOfBirth;

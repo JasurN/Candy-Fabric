@@ -125,6 +125,7 @@ public class MainFrame extends javax.swing.JFrame {
          staffObj.pack();
     staffObj.setLocationRelativeTo(null);
     staffObj.setVisible(true);
+      
        
     }//GEN-LAST:event_buttonForStaffActionPerformed
 
