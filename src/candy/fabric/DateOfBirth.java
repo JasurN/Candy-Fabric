@@ -58,8 +58,8 @@ public class DateOfBirth {
 		setMonth(Integer.parseInt(String.valueOf(date.charAt(2))+String.valueOf(date.charAt(3))));
 		setYear(Integer.parseInt(String.valueOf(date.charAt(4))+String.valueOf(date.charAt(5))+String.valueOf(date.charAt(6))+String.valueOf(date.charAt(7))));
             } catch (Exception e) {
-                
-           e.printStackTrace();
+           System.out.println("You have entered wrong date of Birth\nPlease Re-Enter");
+           
             }
            
         }

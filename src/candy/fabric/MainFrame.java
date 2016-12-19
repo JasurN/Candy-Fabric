@@ -108,7 +108,9 @@ public class MainFrame extends javax.swing.JFrame {
     private void ButtonForProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonForProductActionPerformed
         // TODO add your handling code here:
      ProductManage productObj = new ProductManage();
-     productObj.setVisible(true);
+    productObj.pack();
+    productObj.setLocationRelativeTo(null);
+    productObj.setVisible(true);
     }//GEN-LAST:event_ButtonForProductActionPerformed
 
     private void buttonForSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForSettingsActionPerformed
@@ -120,14 +122,18 @@ public class MainFrame extends javax.swing.JFrame {
     private void buttonForStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForStaffActionPerformed
         // TODO add your handling code here:
         StaffManage staffObj = new StaffManage();
-        staffObj.setVisible(true);
+         staffObj.pack();
+    staffObj.setLocationRelativeTo(null);
+    staffObj.setVisible(true);
        
     }//GEN-LAST:event_buttonForStaffActionPerformed
 
     private void ButtonForStoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonForStoreActionPerformed
         // TODO add your handling code here:
         StoreHouse storeObj = new StoreHouse();
-        storeObj.setVisible(true);
+        storeObj.pack();
+    storeObj.setLocationRelativeTo(null);
+    storeObj.setVisible(true);
     }//GEN-LAST:event_ButtonForStoreActionPerformed
 
     /**

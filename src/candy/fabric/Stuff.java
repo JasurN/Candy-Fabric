@@ -32,7 +32,7 @@ public class Stuff {
         this.id = id;
     }
     public void addStuff(){
-        System.out.print(personObj.dateOfBirth.toString());
+      //  System.out.print(personObj.dateOfBirth.toString());
         DatabaseConnection databaseConnection = new DatabaseConnection();
         String query = "INSERT INTO StuffTable (StuffID, FirstName, LastName, PassportNumber,DateofBirth, EmailAddress) VALUES('"+id+"','"+personObj.getFirstName()+"','"+personObj.getLastName()+"','"+personObj.getPassportNumber()+"','"+personObj.dateOfBirth.toString()+"','"+emailAddress+"')";
         databaseConnection.storeData(query);

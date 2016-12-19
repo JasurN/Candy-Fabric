@@ -54,6 +54,8 @@ public class StaffManage extends javax.swing.JFrame {
         jTextForEmail = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         infoTable = new javax.swing.JTable();
+        jComboToSelecType = new javax.swing.JComboBox<>();
+        jLabelForStuffType = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -236,6 +238,18 @@ public class StaffManage extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(infoTable);
 
+        jComboToSelecType.setBackground(new java.awt.Color(73, 77, 78));
+        jComboToSelecType.setForeground(new java.awt.Color(204, 204, 204));
+        jComboToSelecType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrator", "Worker", "Owner" }));
+        jComboToSelecType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboToSelecTypeActionPerformed(evt);
+            }
+        });
+
+        jLabelForStuffType.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelForStuffType.setText("Staff Type");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -253,27 +267,31 @@ public class StaffManage extends javax.swing.JFrame {
                             .addComponent(labelForLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(94, 94, 94)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextForDateOfBirth)
+                                .addComponent(jTextForFirstName)
+                                .addComponent(jTextForID)
+                                .addComponent(jTextForPassport, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE))
+                            .addComponent(jTextForLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextForDateOfBirth)
-                                    .addComponent(jTextForFirstName)
-                                    .addComponent(jTextForID)
-                                    .addComponent(jTextForPassport, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
+                                .addComponent(dateFormatLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelForEmail)
+                                    .addComponent(jLabelForStuffType, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(dateFormatLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(6, 6, 6)
+                                        .addComponent(jComboToSelecType, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(labelForEmail)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextForEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextForLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                    .addComponent(jTextForEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(buttonForCreate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(buttonForSearch, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -292,13 +310,18 @@ public class StaffManage extends javax.swing.JFrame {
                     .addComponent(labelForEmail)
                     .addComponent(jTextForEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(3, 3, 3)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelForRirstName)
-                    .addComponent(jTextForFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelForLastName)
-                    .addComponent(jTextForLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelForRirstName)
+                            .addComponent(jTextForFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(7, 7, 7)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelForLastName)
+                            .addComponent(jTextForLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jComboToSelecType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelForStuffType)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextForDateOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -324,7 +347,7 @@ public class StaffManage extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(45, Short.MAX_VALUE))))
+                        .addContainerGap(46, Short.MAX_VALUE))))
         );
 
         pack();
@@ -345,44 +368,15 @@ public class StaffManage extends javax.swing.JFrame {
             e.printStackTrace();
         }
   
-        infoTable.repaint();
-         String querys = "SELECT StuffID, FirstName, LastName, EmailAddress FROM StuffTable";
-        ResultSet resultSet = databaseConnection.getData(querys);
-      //System.out.println(infoTable.getRowCount());
-        for(int i=0; i<infoTable.getRowCount();i++)
-        {
-            tableModel.removeRow(i);
-        }
-                
-        try
-        {
-            System.out.println("Stuff ID\tFirst Name\tLast Name\tEmail Address");
-            int i=0;
-            
-                while (resultSet.next()) 
-                {
-                    Object[] row = { null, null, null,null};
-                    tableModel.addRow(row);
-                    infoTable.setValueAt(resultSet.getString(1), i, 0);
-                    infoTable.setValueAt(resultSet.getString(2), i, 1);
-                    infoTable.setValueAt(resultSet.getString(3), i, 2);
-                    infoTable.setValueAt(resultSet.getString(4), i, 3);
-                    i++;
-//System.out.println(resultSet.getString(1)+"\t"+resultSet.getString(2)+"\t"+resultSet.getString(3));
-                }
-                    
-        }
-        catch(SQLException e)
-        {
-                System.out.println(e);
-        }  
-        
+       showTableResult();
         makeFormEmpty();
         
     }//GEN-LAST:event_buttonForUpdateActionPerformed
 
     private void buttonForCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForCreateActionPerformed
         // TODO add your handling code here:
+        String value = jComboToSelecType.getSelectedItem().toString();
+        //System.out.println(value);
         DateOfBirth dateOfBirth = new DateOfBirth(jTextForDateOfBirth.getText());
         Person person = new Person(jTextForFirstName.getText(), jTextForLastName.getText(), jTextForPassport.getText(), dateOfBirth);
         Stuff stuff = new Stuff(person, jTextForEmail.getText(), jTextForID.getText());
@@ -404,41 +398,7 @@ public class StaffManage extends javax.swing.JFrame {
 
     private void buttonForShowAllStuffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForShowAllStuffActionPerformed
                 // TODO add your handling code here:
-     DatabaseConnection databaseObj = new DatabaseConnection();
-        String query = "SELECT StuffID, FirstName, LastName, EmailAddress FROM StuffTable";
-        ResultSet resultSet = databaseObj.getData(query);
-        
-        infoTable.repaint();
-
-       
-       // System.out.println(infoTable.getRowCount());
-        for(int i=0; i<infoTable.getRowCount();i++)
-        {
-            tableModel.removeRow(i);
-        }
-                
-        try
-        {
-            System.out.println("Stuff ID\tFirst Name\tLast Name\tEmail Address");
-            int i=0;
-            
-                while (resultSet.next()) 
-                {
-                    Object[] row = { null, null, null,null};
-                    tableModel.addRow(row);
-                    infoTable.setValueAt(resultSet.getString(1), i, 0);
-                    infoTable.setValueAt(resultSet.getString(2), i, 1);
-                    infoTable.setValueAt(resultSet.getString(3), i, 2);
-                    infoTable.setValueAt(resultSet.getString(4), i, 3);
-                    i++;
-//System.out.println(resultSet.getString(1)+"\t"+resultSet.getString(2)+"\t"+resultSet.getString(3));
-                }
-                    
-        }
-        catch(SQLException e)
-        {
-                System.out.println(e);
-        }   
+   showTableResult();
     }//GEN-LAST:event_buttonForShowAllStuffActionPerformed
 
     private void jTextForPassportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextForPassportMouseClicked
@@ -564,8 +524,15 @@ public class StaffManage extends javax.swing.JFrame {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }catch(NullPointerException e){
+            System.out.println("You have selected empty row");
         }
     }//GEN-LAST:event_infoTableMouseClicked
+
+    private void jComboToSelecTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboToSelecTypeActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jComboToSelecTypeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -608,6 +575,48 @@ javax.swing.table.DefaultTableModel tableModel = new javax.swing.table.DefaultTa
                 "StuffID", "FirstName", "LastName","EmailAddress"
             }
         );
+private void showTableResult(){
+ tableModel.setRowCount(0);
+    DatabaseConnection databaseConnection =new DatabaseConnection();
+    String query = "SELECT StuffID, FirstName, LastName, EmailAddress FROM StuffTable";
+        ResultSet resultSet = databaseConnection.getData(query);
+        
+        infoTable.repaint();
+
+       
+       // System.out.println(infoTable.getRowCount());
+        for(int i=0; i<infoTable.getRowCount();i++)
+        {
+            tableModel.removeRow(i);
+        }
+                
+        try
+        {
+            System.out.println("Stuff ID\tFirst Name\tLast Name\tEmail Address");
+            int i=0;
+            
+                while (resultSet.next()) 
+                {
+                    Object[] row = { null, null, null,null};
+                    tableModel.addRow(row);
+                    infoTable.setValueAt(resultSet.getString(1), i, 0);
+                    infoTable.setValueAt(resultSet.getString(2), i, 1);
+                    infoTable.setValueAt(resultSet.getString(3), i, 2);
+                    infoTable.setValueAt(resultSet.getString(4), i, 3);
+                    i++;
+//System.out.println(resultSet.getString(1)+"\t"+resultSet.getString(2)+"\t"+resultSet.getString(3));
+                }
+                    
+        }
+        catch(SQLException e)
+        {
+                System.out.println(e);
+        }
+        finally{
+            resultSet=null;
+        }
+}
+
 private void makeFormEmpty() {
       jTextForID.setText(""); 
                 jTextForPassport.setText("");
@@ -624,6 +633,8 @@ private void makeFormEmpty() {
     private javax.swing.JButton buttonForUpdate;
     private javax.swing.JLabel dateFormatLabel;
     private javax.swing.JTable infoTable;
+    private javax.swing.JComboBox<String> jComboToSelecType;
+    private javax.swing.JLabel jLabelForStuffType;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextForDateOfBirth;
