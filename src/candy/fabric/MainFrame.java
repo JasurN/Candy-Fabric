@@ -122,12 +122,11 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void ButtonForProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonForProductActionPerformed
         // TODO add your handling code here:
-     ProductManage productObj = new ProductManage();
+     ProductLast productObj = new ProductLast();
     productObj.pack();
     productObj.setLocationRelativeTo(null);
     productObj.setVisible(true);
-    StaffManage staffObj = new StaffManage();
-     super.dispose();
+         super.dispose();
         
       
     }//GEN-LAST:event_ButtonForProductActionPerformed

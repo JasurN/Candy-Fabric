@@ -56,17 +56,17 @@ public class Product {
     
     
     
-    private void setProduct(String Name,String Cost, String ProID, String CurAmount)
+    private void setProduct(String ProID,String Name, String Cost, String CurAmount)
     {
+        setID(ProID);  
         setName(Name);
-        setCost(Cost);
-        setID(ProID);      
+        setCost(Cost);           
         setCurAmount(CurAmount);
     //    setDefinition(def);
         
     }
-      public Product(String Name,String Cost, String ProID,  String CurAmount){
-                 setProduct(Name, Cost, ProID,  CurAmount);
+      public Product(String ProID,String Name, String Cost,  String CurAmount){
+                 setProduct(ProID, Name, Cost,  CurAmount);
    }
    
    
@@ -79,7 +79,7 @@ public class Product {
 
     void addProduct() {
           DatabaseConnection databaseConnection = new DatabaseConnection();
-        String query = "INSERT INTO Product ( ID, Name, CurAmount, Cost) VALUES ( '"+ProID+"', '"+Name+"', '"+CurAmount+"', '"+Cost+"')";
+        String query = "INSERT INTO Product ( ID, Name, Cost, CurAmount) VALUES ( '"+ProID+"', '"+Name+"', '"+Cost+"', '"+CurAmount+"')";
         databaseConnection.storeData(query);
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
