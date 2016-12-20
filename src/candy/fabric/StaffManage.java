@@ -455,7 +455,7 @@ public class StaffManage extends javax.swing.JFrame {
   
        showTableResult();
         makeFormEmpty();
-        
+        jTextForMessages.setText("Stuff updated successfully");
     }//GEN-LAST:event_buttonForUpdateActionPerformed
 
     private void buttonForCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForCreateActionPerformed
@@ -463,11 +463,13 @@ public class StaffManage extends javax.swing.JFrame {
         String stuffTypeString = jComboToSelecType.getSelectedItem().toString();
     String passTextOriginal = new String(jPassFieldForPassword.getPassword());
      String passTextCopy = new String(jPasswordFieldForPassworkConfirm.getPassword());
-        DateOfBirth dateOfBirth = new DateOfBirth(jTextForDateOfBirth.getText());
-        Person person = new Person(jTextForFirstName.getText(), jTextForLastName.getText(), jTextForPassport.getText(), dateOfBirth);
-        Stuff stuff = new Stuff(person, jTextForEmail.getText(), jTextForID.getText(),stuffTypeString,passTextOriginal,passTextCopy);
+       
         if(passTextOriginal.equals(passTextCopy)){
+             DateOfBirth dateOfBirth = new DateOfBirth(jTextForDateOfBirth.getText());
+        Person person = new Person(jTextForFirstName.getText(), jTextForLastName.getText(), jTextForPassport.getText(), dateOfBirth);
+        Stuff stuff = new Stuff(person, jTextForEmail.getText(), jTextForID.getText(),stuffTypeString,passTextOriginal);
         stuff.addStuff();
+        jTextForMessages.setText("Stuff Added Successfully");
         }
          makeFormEmpty();
     }//GEN-LAST:event_buttonForCreateActionPerformed
@@ -487,6 +489,7 @@ public class StaffManage extends javax.swing.JFrame {
     private void buttonForShowAllStuffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForShowAllStuffActionPerformed
                 // TODO add your handling code here:
    showTableResult();
+   jTextForMessages.setText("All show showed");
     }//GEN-LAST:event_buttonForShowAllStuffActionPerformed
 
     private void jTextForPassportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextForPassportMouseClicked
@@ -569,6 +572,7 @@ public class StaffManage extends javax.swing.JFrame {
                     infoTable.setValueAt(resultSet.getString(4), i, 3);
                     i++;
 //System.out.println(resultSet.getString(1)+"\t"+resultSet.getString(2)+"\t"+resultSet.getString(3));
+jTextForMessages.setText("Stuff found");
                 }
                     
         }
@@ -591,6 +595,7 @@ public class StaffManage extends javax.swing.JFrame {
         
         tableModel.removeRow(selectedRow);
         infoTable.repaint();
+        jTextForMessages.setText("Stuff deleted successfully");
     }//GEN-LAST:event_buttonForDeleteActionPerformed
 
     private void infoTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infoTableMouseClicked
