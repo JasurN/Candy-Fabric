@@ -5,6 +5,7 @@
  */
 package candy.fabric;
 
+import java.awt.Color;
 import javax.swing.JFrame;
 
 /**
@@ -18,6 +19,7 @@ public class EntryForm extends javax.swing.JFrame {
      */
     public EntryForm() {
         initComponents();
+        getContentPane().setBackground(new Color( 59 , 63 , 66));
     }
 
     /**
@@ -39,12 +41,18 @@ public class EntryForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        textFieldForUserId.setBackground(new java.awt.Color(204, 204, 204));
+
         labelForUserID.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        labelForUserID.setForeground(new java.awt.Color(204, 204, 204));
         labelForUserID.setText("User ID");
 
         labelForPassword.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        labelForPassword.setForeground(new java.awt.Color(204, 204, 204));
         labelForPassword.setText("Password");
 
+        buttonForLogIn.setBackground(new java.awt.Color(73, 77, 78));
+        buttonForLogIn.setForeground(new java.awt.Color(204, 204, 204));
         buttonForLogIn.setText("Log in");
         buttonForLogIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,11 +60,15 @@ public class EntryForm extends javax.swing.JFrame {
             }
         });
 
+        buttonForDefaultAccount.setBackground(new java.awt.Color(73, 77, 78));
+        buttonForDefaultAccount.setForeground(new java.awt.Color(204, 204, 204));
         buttonForDefaultAccount.setText("Default Account");
 
         labelForNameOfFabric.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        labelForNameOfFabric.setForeground(new java.awt.Color(204, 204, 204));
         labelForNameOfFabric.setText("Fabric Management System");
 
+        passwordFieldForPassword.setBackground(new java.awt.Color(204, 204, 204));
         passwordFieldForPassword.setText("********");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
