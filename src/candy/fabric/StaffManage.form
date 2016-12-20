@@ -22,6 +22,11 @@
         <Property name="text" type="java.lang.String" value="jToggleButton1"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JToggleButton" name="jToggleButton2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jToggleButton2"/>
+      </Properties>
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
@@ -111,15 +116,13 @@
                                   </Group>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="buttonForCreate" max="32767" attributes="0"/>
-                                      <Component id="buttonForSearch" max="32767" attributes="0"/>
-                                      <Component id="buttonForDelete" max="32767" attributes="0"/>
-                                      <Component id="buttonForUpdate" max="32767" attributes="0"/>
-                                      <Component id="buttonForShowAllStuff" pref="153" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="buttonForBack" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="buttonForCreate" max="32767" attributes="0"/>
+                                  <Component id="buttonForSearch" max="32767" attributes="0"/>
+                                  <Component id="buttonForDelete" max="32767" attributes="0"/>
+                                  <Component id="buttonForUpdate" max="32767" attributes="0"/>
+                                  <Component id="buttonForShowAllStuff" pref="153" max="32767" attributes="0"/>
+                                  <Component id="buttonForBack" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
