@@ -6,6 +6,7 @@
 package candy.fabric;
 
 import java.awt.Color;
+import java.awt.HeadlessException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -141,12 +142,8 @@ public class EntryForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonForLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForLogInActionPerformed
-        // TODO add your handling code here:
-       
- DatabaseConnection dbc = new DatabaseConnection();
+        // TODO add your handling code here:  
         
-        String query = "SELECT StuffID,  StuffType, Password FROM StuffTable WHERE StuffID = '"+textFieldForUserId.getText()+"'";
-        ResultSet resultSet = dbc.getData(query);
         if(textFieldForUserId.getText().equals("admin")){
              String passTextFromJframe = new String(passwordFieldForPassword.getPassword());
              if(passTextFromJframe.equals("admin")){
@@ -154,19 +151,35 @@ public class EntryForm extends javax.swing.JFrame {
              }
         }else{
             try {
+                
+                 DatabaseConnection dbc = new DatabaseConnection();
+                String query = "SELECT StuffID,  Password FROM StuffTable WHERE StuffID = '"+Integer.parseInt(textFieldForUserId.getText())+"'";
+                
+        ResultSet resultSet = dbc.getData(query);
+             
+       if(!resultSet.isBeforeFirst()){
+          // resultSet.beforeFirst();
+          JOptionPane.showMessageDialog(null, "There is no such user in our system!");
+       }
+       else{
+                
             while(resultSet.next()){
-             int usernameFromDatabase= resultSet.getInt("StuffID");
+                 int usernameFromDatabase= resultSet.getInt("StuffID");
               String passwordFromDatabase = resultSet.getString("Password");
+             //System.out.println(usernameFromDatabase +"\n"+passwordFromDatabase);
               if(usernameFromDatabase==Integer.parseInt(textFieldForUserId.getText())){
                   
                   String passTextFromJframe = new String(passwordFieldForPassword.getPassword());
                   if(passwordFromDatabase.equals(passTextFromJframe)){
                         openMain();
-                  }
+                  }else{
+                  JOptionPane.showMessageDialog(null, "Sorry! Your Stuff ID or password entered wrong\nPlease re-enter");
+              }
               }else{
-                  JOptionPane.showMessageDialog(null, "Sorry! your Stuff ID or password entered wrong\nPlease re-enter them");
+                   JOptionPane.showMessageDialog(null, "Sorry! Your Stuff ID or password entered wrong\nPlease re-enter");
               }
               
+            }
             }
         } catch (SQLException ex) {
             Logger.getLogger(EntryForm.class.getName()).log(Level.SEVERE, null, ex);
