@@ -35,8 +35,8 @@ public class MainFrame extends javax.swing.JFrame {
         buttonForStaff = new javax.swing.JButton();
         ButtonForProduct = new javax.swing.JButton();
         ButtonForStore = new javax.swing.JButton();
-        buttonForSettings = new javax.swing.JButton();
         buttonForBack = new javax.swing.JButton();
+        buttonForExit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Main Frame");
@@ -68,21 +68,21 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        buttonForSettings.setBackground(new java.awt.Color(73, 77, 78));
-        buttonForSettings.setForeground(new java.awt.Color(204, 204, 204));
-        buttonForSettings.setText("Settings");
-        buttonForSettings.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonForSettingsActionPerformed(evt);
-            }
-        });
-
         buttonForBack.setBackground(new java.awt.Color(73, 77, 78));
         buttonForBack.setForeground(new java.awt.Color(204, 204, 204));
         buttonForBack.setText("Go Back");
         buttonForBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonForBackActionPerformed(evt);
+            }
+        });
+
+        buttonForExit.setBackground(new java.awt.Color(73, 77, 78));
+        buttonForExit.setForeground(new java.awt.Color(204, 204, 204));
+        buttonForExit.setText("Exit");
+        buttonForExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonForExitActionPerformed(evt);
             }
         });
 
@@ -93,27 +93,28 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(227, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(buttonForSettings, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                    .addComponent(ButtonForProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                    .addComponent(buttonForStaff, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                    .addComponent(ButtonForStore, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                    .addComponent(buttonForBack, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
+                    .addComponent(buttonForExit, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(ButtonForProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                        .addComponent(buttonForStaff, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                        .addComponent(ButtonForStore, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                        .addComponent(buttonForBack, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)))
                 .addGap(190, 190, 190))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(22, 22, 22)
                 .addComponent(buttonForStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ButtonForProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ButtonForStore, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonForSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonForBack, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonForExit, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
@@ -126,12 +127,6 @@ public class MainFrame extends javax.swing.JFrame {
     productObj.setLocationRelativeTo(null);
     productObj.setVisible(true);
     }//GEN-LAST:event_ButtonForProductActionPerformed
-
-    private void buttonForSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForSettingsActionPerformed
-        // TODO add your handling code here:
-         Setting settingsObj = new Setting();
-     settingsObj.setVisible(true);
-    }//GEN-LAST:event_buttonForSettingsActionPerformed
 
     private void buttonForStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForStaffActionPerformed
         // TODO add your handling code here:
@@ -162,6 +157,11 @@ public class MainFrame extends javax.swing.JFrame {
                         super.dispose();
         
     }//GEN-LAST:event_buttonForBackActionPerformed
+
+    private void buttonForExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForExitActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_buttonForExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,7 +202,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton ButtonForProduct;
     private javax.swing.JButton ButtonForStore;
     private javax.swing.JButton buttonForBack;
-    private javax.swing.JButton buttonForSettings;
+    private javax.swing.JButton buttonForExit;
     private javax.swing.JButton buttonForStaff;
     private javax.swing.JProgressBar jProgressBar1;
     // End of variables declaration//GEN-END:variables
