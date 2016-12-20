@@ -34,7 +34,6 @@ public class MainFrame extends javax.swing.JFrame {
         jProgressBar1 = new javax.swing.JProgressBar();
         buttonForStaff = new javax.swing.JButton();
         ButtonForProduct = new javax.swing.JButton();
-        ButtonForStore = new javax.swing.JButton();
         buttonForBack = new javax.swing.JButton();
         buttonForExit = new javax.swing.JButton();
 
@@ -56,15 +55,6 @@ public class MainFrame extends javax.swing.JFrame {
         ButtonForProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonForProductActionPerformed(evt);
-            }
-        });
-
-        ButtonForStore.setBackground(new java.awt.Color(73, 77, 78));
-        ButtonForStore.setForeground(new java.awt.Color(204, 204, 204));
-        ButtonForStore.setText("Store House");
-        ButtonForStore.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonForStoreActionPerformed(evt);
             }
         });
 
@@ -94,27 +84,23 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(227, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(buttonForExit, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(ButtonForProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                        .addComponent(buttonForStaff, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                        .addComponent(ButtonForStore, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                        .addComponent(buttonForBack, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)))
+                    .addComponent(ButtonForProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                    .addComponent(buttonForStaff, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                    .addComponent(buttonForBack, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
                 .addGap(190, 190, 190))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(40, 40, 40)
                 .addComponent(buttonForStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ButtonForProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ButtonForStore, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonForBack, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonForExit, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         pack();
@@ -141,16 +127,6 @@ public class MainFrame extends javax.swing.JFrame {
       super.dispose();
        
     }//GEN-LAST:event_buttonForStaffActionPerformed
-
-    private void ButtonForStoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonForStoreActionPerformed
-        // TODO add your handling code here:
-        StoreHouse storeObj = new StoreHouse();
-        storeObj.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        storeObj.pack();
-    storeObj.setLocationRelativeTo(null);
-    storeObj.setVisible(true);
-     super.dispose();
-    }//GEN-LAST:event_ButtonForStoreActionPerformed
 
     private void buttonForBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForBackActionPerformed
         // TODO add your handling code here:
@@ -205,7 +181,6 @@ public class MainFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonForProduct;
-    private javax.swing.JButton ButtonForStore;
     private javax.swing.JButton buttonForBack;
     private javax.swing.JButton buttonForExit;
     private javax.swing.JButton buttonForStaff;
