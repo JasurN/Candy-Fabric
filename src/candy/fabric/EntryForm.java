@@ -6,7 +6,7 @@
 package candy.fabric;
 
 import java.awt.Color;
-import java.awt.HeadlessException;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -46,12 +46,22 @@ public class EntryForm extends javax.swing.JFrame {
         passwordFieldForPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         textFieldForUserId.setBackground(new java.awt.Color(204, 204, 204));
         textFieldForUserId.setText("18782");
         textFieldForUserId.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 textFieldForUserIdMouseClicked(evt);
+            }
+        });
+        textFieldForUserId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                textFieldForUserIdKeyPressed(evt);
             }
         });
 
@@ -69,6 +79,11 @@ public class EntryForm extends javax.swing.JFrame {
         buttonForLogIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonForLogInActionPerformed(evt);
+            }
+        });
+        buttonForLogIn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                buttonForLogInKeyPressed(evt);
             }
         });
 
@@ -90,6 +105,11 @@ public class EntryForm extends javax.swing.JFrame {
         passwordFieldForPassword.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 passwordFieldForPasswordMouseClicked(evt);
+            }
+        });
+        passwordFieldForPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwordFieldForPasswordKeyPressed(evt);
             }
         });
 
@@ -143,8 +163,101 @@ public class EntryForm extends javax.swing.JFrame {
 
     private void buttonForLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForLogInActionPerformed
         // TODO add your handling code here:  
+       logInFunction();
+       
+    }//GEN-LAST:event_buttonForLogInActionPerformed
+
+    private void buttonForDefaultAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForDefaultAccountActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "The superadmin account info\nusername - admin\npassword - admin");
+    }//GEN-LAST:event_buttonForDefaultAccountActionPerformed
+
+    private void textFieldForUserIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textFieldForUserIdMouseClicked
+        // TODO add your handling code here:
+        if(textFieldForUserId.getText().equals("18782"))
+        {
+            textFieldForUserId.setText("");
+            textFieldForUserId.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_textFieldForUserIdMouseClicked
+
+    private void passwordFieldForPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordFieldForPasswordMouseClicked
+        // TODO add your handling code here:
+        String passTextFromJframe = new String(passwordFieldForPassword.getPassword());
+        if(passTextFromJframe.equals("alloallo"))
+        {
+            passwordFieldForPassword.setText("");
+            passwordFieldForPassword.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_passwordFieldForPasswordMouseClicked
+
+    private void buttonForLogInKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buttonForLogInKeyPressed
+        // TODO add your handling code here:
         
-        if(textFieldForUserId.getText().equals("admin")){
+    }//GEN-LAST:event_buttonForLogInKeyPressed
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        // TODO add your handling code here:
+      
+        // Invoked when a key has been pressed.
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER ) {
+      logInFunction();
+      
+    }
+    }//GEN-LAST:event_formKeyPressed
+
+    private void passwordFieldForPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordFieldForPasswordKeyPressed
+        // TODO add your handling code here:
+          if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER ) {
+      logInFunction();
+      
+    }
+    }//GEN-LAST:event_passwordFieldForPasswordKeyPressed
+
+    private void textFieldForUserIdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textFieldForUserIdKeyPressed
+        // TODO add your handling code here:
+           if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER ) {
+      logInFunction();
+      
+    }
+    }//GEN-LAST:event_textFieldForUserIdKeyPressed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(EntryForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(EntryForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(EntryForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(EntryForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new EntryForm().setVisible(true);
+            }
+        });
+    }
+    private void logInFunction(){
+         if(textFieldForUserId.getText().equals("admin")){
              String passTextFromJframe = new String(passwordFieldForPassword.getPassword());
              if(passTextFromJframe.equals("admin")){
                  openMain();
@@ -188,68 +301,6 @@ public class EntryForm extends javax.swing.JFrame {
         }
             
         }
-        
-        
-        
-    }//GEN-LAST:event_buttonForLogInActionPerformed
-
-    private void buttonForDefaultAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForDefaultAccountActionPerformed
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "The superadmin account info\nusername - admin\npassword - admin");
-    }//GEN-LAST:event_buttonForDefaultAccountActionPerformed
-
-    private void textFieldForUserIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textFieldForUserIdMouseClicked
-        // TODO add your handling code here:
-        if(textFieldForUserId.getText().equals("18782"))
-        {
-            textFieldForUserId.setText("");
-            textFieldForUserId.setForeground(Color.BLACK);
-        }
-    }//GEN-LAST:event_textFieldForUserIdMouseClicked
-
-    private void passwordFieldForPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordFieldForPasswordMouseClicked
-        // TODO add your handling code here:
-        String passTextFromJframe = new String(passwordFieldForPassword.getPassword());
-        if(passTextFromJframe.equals("alloallo"))
-        {
-            passwordFieldForPassword.setText("");
-            passwordFieldForPassword.setForeground(Color.BLACK);
-        }
-    }//GEN-LAST:event_passwordFieldForPasswordMouseClicked
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EntryForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EntryForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EntryForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EntryForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new EntryForm().setVisible(true);
-            }
-        });
     }
 private void openMain(){
     JOptionPane.showMessageDialog(null, "You have entered successfully!");
