@@ -19,12 +19,12 @@ import javax.swing.JFrame;
      */
     public static void main(String[] args) {
         // TODO code application logic here
+       EntryForm entryForm = new EntryForm();
+        entryForm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       entryForm.pack();
+    entryForm.setLocationRelativeTo(null);
+    entryForm.setVisible(true);
       
-        MainFrame mainFrame = new MainFrame();
-        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       mainFrame.pack();
-    mainFrame.setLocationRelativeTo(null);
-    mainFrame.setVisible(true);
        
     }
     

@@ -154,7 +154,7 @@ public class DatabaseConnection
 		}
 		catch(SQLException e)
 		{
-			System.out.println(e);
+			e.printStackTrace();
 		}
     }    
     
