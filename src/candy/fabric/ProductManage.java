@@ -5,8 +5,10 @@
  */
 package candy.fabric;
 
+import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JFrame;
 
 /**
  *
@@ -19,6 +21,7 @@ public class ProductManage extends javax.swing.JFrame {
      */
     public ProductManage() {
         initComponents();
+         getContentPane().setBackground(new Color( 59 , 63 , 66));
     }
 
       javax.swing.table.DefaultTableModel tableModel = new javax.swing.table.DefaultTableModel(
@@ -51,7 +54,7 @@ public class ProductManage extends javax.swing.JFrame {
         deleteProductButton = new javax.swing.JButton();
         searchAllProductButton = new javax.swing.JButton();
         updateProductButton = new javax.swing.JButton();
-        productAmountButton = new javax.swing.JButton();
+        buttonForBack = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         displayArea = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -60,8 +63,11 @@ public class ProductManage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        nameLabel.setForeground(new java.awt.Color(204, 204, 204));
         nameLabel.setText("Name  ");
 
+        addProductButton.setBackground(new java.awt.Color(73, 77, 78));
+        addProductButton.setForeground(new java.awt.Color(204, 204, 204));
         addProductButton.setText("Add Product");
         addProductButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,14 +75,38 @@ public class ProductManage extends javax.swing.JFrame {
             }
         });
 
+        costLabel.setForeground(new java.awt.Color(204, 204, 204));
         costLabel.setText("Cost  ");
 
+        idLabel.setForeground(new java.awt.Color(204, 204, 204));
         idLabel.setText("ID");
 
+        amountLabel.setForeground(new java.awt.Color(204, 204, 204));
         amountLabel.setText("Amount");
 
-        searchProductButton.setText("Search Product");
+        NameField.setBackground(new java.awt.Color(204, 204, 204));
+        NameField.setForeground(new java.awt.Color(0, 153, 153));
 
+        CurAmountField.setBackground(new java.awt.Color(204, 204, 204));
+        CurAmountField.setForeground(new java.awt.Color(0, 153, 153));
+
+        costField.setBackground(new java.awt.Color(204, 204, 204));
+        costField.setForeground(new java.awt.Color(0, 153, 153));
+
+        soldField.setBackground(new java.awt.Color(204, 204, 204));
+        soldField.setForeground(new java.awt.Color(0, 153, 153));
+
+        searchProductButton.setBackground(new java.awt.Color(73, 77, 78));
+        searchProductButton.setForeground(new java.awt.Color(204, 204, 204));
+        searchProductButton.setText("Search Product");
+        searchProductButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchProductButtonActionPerformed(evt);
+            }
+        });
+
+        deleteProductButton.setBackground(new java.awt.Color(73, 77, 78));
+        deleteProductButton.setForeground(new java.awt.Color(204, 204, 204));
         deleteProductButton.setText("Delete Product");
         deleteProductButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,6 +114,8 @@ public class ProductManage extends javax.swing.JFrame {
             }
         });
 
+        searchAllProductButton.setBackground(new java.awt.Color(73, 77, 78));
+        searchAllProductButton.setForeground(new java.awt.Color(204, 204, 204));
         searchAllProductButton.setText("Search all Product");
         searchAllProductButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +123,8 @@ public class ProductManage extends javax.swing.JFrame {
             }
         });
 
+        updateProductButton.setBackground(new java.awt.Color(73, 77, 78));
+        updateProductButton.setForeground(new java.awt.Color(204, 204, 204));
         updateProductButton.setText("Update Product");
         updateProductButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,20 +132,27 @@ public class ProductManage extends javax.swing.JFrame {
             }
         });
 
-        productAmountButton.setText("Product Amount");
-        productAmountButton.addActionListener(new java.awt.event.ActionListener() {
+        buttonForBack.setBackground(new java.awt.Color(73, 77, 78));
+        buttonForBack.setForeground(new java.awt.Color(204, 204, 204));
+        buttonForBack.setText("Back");
+        buttonForBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                productAmountButtonActionPerformed(evt);
+                buttonForBackActionPerformed(evt);
             }
         });
 
+        displayArea.setBackground(new java.awt.Color(204, 204, 204));
         displayArea.setColumns(20);
+        displayArea.setForeground(new java.awt.Color(0, 153, 153));
         displayArea.setRows(5);
         jScrollPane1.setViewportView(displayArea);
 
+        infoTable.setBackground(new java.awt.Color(73, 77, 78));
+        infoTable.setForeground(new java.awt.Color(204, 204, 204));
         infoTable.setModel(tableModel);
         jScrollPane2.setViewportView(infoTable);
 
+        labelForDefinition.setForeground(new java.awt.Color(204, 204, 204));
         labelForDefinition.setText("Extra Definition");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -141,7 +182,7 @@ public class ProductManage extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(searchAllProductButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(searchProductButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(productAmountButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                            .addComponent(buttonForBack, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
                             .addComponent(addProductButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(updateProductButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(deleteProductButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -185,7 +226,7 @@ public class ProductManage extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(searchAllProductButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(productAmountButton))
+                        .addComponent(buttonForBack))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
@@ -263,7 +304,7 @@ public class ProductManage extends javax.swing.JFrame {
         System.out.println("Row Selection: "+selectedRow);
         System.out.println("Product ID: "+selectedID);
         
-        String query="Delete * from ProductTable WHERE ID='"+selectedID+"'";
+        String query="Delete * from Product WHERE ID='"+selectedID+"'";
 	new DatabaseConnection().deleteData(query);
         
         tableModel.removeRow(selectedRow);
@@ -273,16 +314,22 @@ public class ProductManage extends javax.swing.JFrame {
         
     }//GEN-LAST:event_deleteProductButtonActionPerformed
 
-    private void productAmountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productAmountButtonActionPerformed
+    private void buttonForBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForBackActionPerformed
         // TODO add your handling code here:
+        MainFrame mainFrame = new MainFrame();
+        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       mainFrame.pack();
+    mainFrame.setLocationRelativeTo(null);
+    mainFrame.setVisible(true);
+    super.dispose(); 
         
-        
-    }//GEN-LAST:event_productAmountButtonActionPerformed
+    }//GEN-LAST:event_buttonForBackActionPerformed
 
     private void searchAllProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchAllProductButtonActionPerformed
         // TODO add your handling code here:
+        tableModel.setRowCount(0);
      DatabaseConnection databaseObj = new DatabaseConnection();
-        String query = "SELECT ID, Name, CurAmount, Cost FROM ProductTable";
+        String query = "SELECT ID, Name, CurAmount, Cost FROM Product";
         ResultSet resultSet = databaseObj.getData(query);
         
         infoTable.repaint();
@@ -321,6 +368,10 @@ public class ProductManage extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_searchAllProductButtonActionPerformed
+
+    private void searchProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchProductButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchProductButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -362,6 +413,7 @@ public class ProductManage extends javax.swing.JFrame {
     private javax.swing.JTextField NameField;
     private javax.swing.JButton addProductButton;
     private javax.swing.JLabel amountLabel;
+    private javax.swing.JButton buttonForBack;
     private javax.swing.JTextField costField;
     private javax.swing.JLabel costLabel;
     private javax.swing.JButton deleteProductButton;
@@ -372,7 +424,6 @@ public class ProductManage extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelForDefinition;
     private javax.swing.JLabel nameLabel;
-    private javax.swing.JButton productAmountButton;
     private javax.swing.JButton searchAllProductButton;
     private javax.swing.JButton searchProductButton;
     private javax.swing.JTextField soldField;
