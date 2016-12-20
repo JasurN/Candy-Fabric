@@ -5,19 +5,30 @@
  */
 package candy.fabric;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
- * @author Acer-Aspire
+ * @author Moni
  */
 public class ProductManage extends javax.swing.JFrame {
 
     /**
-     * Creates new form ProductManage
+     * Creates new form BookFrame
      */
     public ProductManage() {
         initComponents();
     }
 
+      javax.swing.table.DefaultTableModel tableModel = new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+            },
+            new String [] {
+                "Name", "CurAmount", "Cost", "ID"
+            }
+        );
+      
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,21 +38,289 @@ public class ProductManage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        nameLabel = new javax.swing.JLabel();
+        addProductButton = new javax.swing.JButton();
+        costLabel = new javax.swing.JLabel();
+        idLabel = new javax.swing.JLabel();
+        amountLabel = new javax.swing.JLabel();
+        NameField = new javax.swing.JTextField();
+        CurAmountField = new javax.swing.JTextField();
+        costField = new javax.swing.JTextField();
+        soldField = new javax.swing.JTextField();
+        searchProductButton = new javax.swing.JButton();
+        deleteProductButton = new javax.swing.JButton();
+        searchAllProductButton = new javax.swing.JButton();
+        updateProductButton = new javax.swing.JButton();
+        productAmountButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        displayArea = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        infoTable = new javax.swing.JTable();
+        labelForDefinition = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        nameLabel.setText("Name  ");
+
+        addProductButton.setText("Add Product");
+        addProductButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addProductButtonActionPerformed(evt);
+            }
+        });
+
+        costLabel.setText("Cost  ");
+
+        idLabel.setText("ID");
+
+        amountLabel.setText("Amount");
+
+        searchProductButton.setText("Search Product");
+
+        deleteProductButton.setText("Delete Product");
+        deleteProductButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteProductButtonActionPerformed(evt);
+            }
+        });
+
+        searchAllProductButton.setText("Search all Product");
+        searchAllProductButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchAllProductButtonActionPerformed(evt);
+            }
+        });
+
+        updateProductButton.setText("Update Product");
+        updateProductButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateProductButtonActionPerformed(evt);
+            }
+        });
+
+        productAmountButton.setText("Product Amount");
+        productAmountButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productAmountButtonActionPerformed(evt);
+            }
+        });
+
+        displayArea.setColumns(20);
+        displayArea.setRows(5);
+        jScrollPane1.setViewportView(displayArea);
+
+        infoTable.setModel(tableModel);
+        jScrollPane2.setViewportView(infoTable);
+
+        labelForDefinition.setText("Extra Definition");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(costLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(idLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(amountLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(35, 35, 35)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(costField, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                            .addComponent(CurAmountField)
+                            .addComponent(NameField)
+                            .addComponent(soldField))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelForDefinition)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(searchAllProductButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(searchProductButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(productAmountButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                            .addComponent(addProductButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(updateProductButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(deleteProductButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nameLabel)
+                    .addComponent(NameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelForDefinition))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CurAmountField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(costLabel))
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(costField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idLabel)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(soldField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(amountLabel))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(addProductButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(searchProductButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(updateProductButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(deleteProductButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(searchAllProductButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(productAmountButton))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProductButtonActionPerformed
+        // TODO add your handling code here:
+   
+        Product product=new Product(NameField.getText(),CurAmountField.getText(),costField.getText(),soldField.getText());   
+      product.addProduct();
+        /*DatabaseConnection dbc = new DatabaseConnection();
+        String query = "INSERT INTO Product ( Name, CurAmount, Cost, ID) VALUES ( '"+NameField.getText()+"', '"+CurAmountField.getText()+"', '"+costField.getText()+"', '"+soldField.getText()+"')";
+        dbc.storeData(query);
+        
+        
+        makeFormEmpty();
+      */  
+        
+    }//GEN-LAST:event_addProductButtonActionPerformed
+ 
+    private void updateProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateProductButtonActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = infoTable.getSelectedRow();
+        String selectedID = String.valueOf(infoTable.getValueAt(selectedRow, 0));
+        
+        DatabaseConnection dbc = new DatabaseConnection();
+        String query = "UPDATE ProductTable SET ID= '"+"',Name='"+NameField.getText()+"',CurAmount='"+CurAmountField.getText()+"', Cost='"+costField.getText()+"' WHERE ID ='"+selectedID+"'";
+        ResultSet resultSet = dbc.getData(query);
+                infoTable.repaint();
+ 
+//
+
+//        System.out.println(infoTable.getRowCount());
+//        for(int i=0; i<infoTable.getRowCount();i++)
+//        {
+//            tableModel.removeRow(i);
+//        }
+                
+        try
+        {
+            System.out.println("Name\tCurAmount\tCost\tID");
+            int rowIndex=0;
+            
+                while (resultSet.next()) 
+                {
+//                    
+                    displayArea.append(resultSet.getString(1)+"\t"+resultSet.getString(2)+"\t"+resultSet.getString(3)+"\t"+resultSet.getString(4)+"\n");
+                    
+                    Object[] row = { null, null, null, null};
+                    tableModel.addRow(row);
+                    infoTable.setValueAt(resultSet.getString(1), rowIndex, 0);
+                    infoTable.setValueAt(resultSet.getString(2), rowIndex, 1);
+                    infoTable.setValueAt(resultSet.getString(3), rowIndex, 2);
+                    infoTable.setValueAt(resultSet.getString(4), rowIndex, 3);
+
+                    rowIndex++;
+//System.out.println(resultSet.getString(1)+"\t"+resultSet.getString(2)+"\t"+resultSet.getString(3));
+                }
+                    
+        }
+        catch(SQLException e)
+        {
+                System.out.println(e);
+        }
+        
+    }//GEN-LAST:event_updateProductButtonActionPerformed
+
+    private void deleteProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteProductButtonActionPerformed
+        // TODO add your handling code here:
+         int selectedRow = infoTable.getSelectedRow();
+        String selectedID = String.valueOf(infoTable.getValueAt(selectedRow, 0));
+        
+        System.out.println("Row Selection: "+selectedRow);
+        System.out.println("Product ID: "+selectedID);
+        
+        String query="Delete * from ProductTable WHERE ID='"+selectedID+"'";
+	new DatabaseConnection().deleteData(query);
+        
+        tableModel.removeRow(selectedRow);
+        infoTable.repaint();
+        
+        
+        
+    }//GEN-LAST:event_deleteProductButtonActionPerformed
+
+    private void productAmountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productAmountButtonActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_productAmountButtonActionPerformed
+
+    private void searchAllProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchAllProductButtonActionPerformed
+        // TODO add your handling code here:
+     DatabaseConnection databaseObj = new DatabaseConnection();
+        String query = "SELECT ID, Name, CurAmount, Cost FROM ProductTable";
+        ResultSet resultSet = databaseObj.getData(query);
+        
+        infoTable.repaint();
+
+       
+       // System.out.println(infoTable.getRowCount());
+        for(int i=0; i<infoTable.getRowCount();i++)
+        {
+            tableModel.removeRow(i);
+        }
+                
+        try
+        {
+         //   System.out.println("ID\t Name\tCurAmount\tCost");
+            int i=0;
+            
+                while (resultSet.next()) 
+                {
+                    Object[] row = { null, null, null,null};
+                    tableModel.addRow(row);
+                    infoTable.setValueAt(resultSet.getString(1), i, 0);
+                    infoTable.setValueAt(resultSet.getString(2), i, 1);
+                    infoTable.setValueAt(resultSet.getString(3), i, 2);
+                    infoTable.setValueAt(resultSet.getString(4), i, 3);
+                    i++;
+//System.out.println(resultSet.getString(1)+"\t"+resultSet.getString(2)+"\t"+resultSet.getString(3));
+                }
+                    
+        }
+        catch(SQLException e)
+        {
+                System.out.println(e);
+        }   
+                                                         
+   
+        
+        
+    }//GEN-LAST:event_searchAllProductButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -59,25 +338,56 @@ public class ProductManage extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ProductManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ProductManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ProductManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ProductManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ProductManage().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new ProductManage().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField CurAmountField;
+    private javax.swing.JTextField NameField;
+    private javax.swing.JButton addProductButton;
+    private javax.swing.JLabel amountLabel;
+    private javax.swing.JTextField costField;
+    private javax.swing.JLabel costLabel;
+    private javax.swing.JButton deleteProductButton;
+    private javax.swing.JTextArea displayArea;
+    private javax.swing.JLabel idLabel;
+    private javax.swing.JTable infoTable;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel labelForDefinition;
+    private javax.swing.JLabel nameLabel;
+    private javax.swing.JButton productAmountButton;
+    private javax.swing.JButton searchAllProductButton;
+    private javax.swing.JButton searchProductButton;
+    private javax.swing.JTextField soldField;
+    private javax.swing.JButton updateProductButton;
     // End of variables declaration//GEN-END:variables
+
+ private void makeFormEmpty() {
+        NameField.setText("");
+        CurAmountField.setText("");
+        costField.setText("");
+        soldField.setText("");
+       
+    }
+
+
+
 }
+
