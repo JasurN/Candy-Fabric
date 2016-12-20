@@ -297,7 +297,8 @@ public class StaffManage extends javax.swing.JFrame {
 
         jTextForMessages.setEditable(false);
         jTextForMessages.setBackground(new java.awt.Color(204, 204, 204));
-        jTextForMessages.setForeground(new java.awt.Color(255, 102, 102));
+        jTextForMessages.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jTextForMessages.setForeground(new java.awt.Color(153, 255, 102));
 
         buttonForBack.setBackground(new java.awt.Color(73, 77, 78));
         buttonForBack.setForeground(new java.awt.Color(204, 204, 204));
