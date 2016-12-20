@@ -126,6 +126,10 @@ public class MainFrame extends javax.swing.JFrame {
     productObj.pack();
     productObj.setLocationRelativeTo(null);
     productObj.setVisible(true);
+    StaffManage staffObj = new StaffManage();
+     super.dispose();
+        
+      
     }//GEN-LAST:event_ButtonForProductActionPerformed
 
     private void buttonForStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForStaffActionPerformed
@@ -142,9 +146,11 @@ public class MainFrame extends javax.swing.JFrame {
     private void ButtonForStoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonForStoreActionPerformed
         // TODO add your handling code here:
         StoreHouse storeObj = new StoreHouse();
+        storeObj.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         storeObj.pack();
     storeObj.setLocationRelativeTo(null);
     storeObj.setVisible(true);
+     super.dispose();
     }//GEN-LAST:event_ButtonForStoreActionPerformed
 
     private void buttonForBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForBackActionPerformed
