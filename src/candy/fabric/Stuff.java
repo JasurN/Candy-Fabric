@@ -19,15 +19,15 @@ public final class Stuff {
      * @param id
      * @param stuffTypeString
      * @param passwordOriginal
-     * @param passwordCopy
+ 
      */
-    public Stuff( Person personObj, String emailAddress,String id,String stuffTypeString,String passwordOriginal, String passwordCopy)
+    public Stuff( Person personObj, String emailAddress,String id,String stuffTypeString,String passwordOriginal)
     {
         setStuffTypeString(stuffTypeString);
         setPersonObj(personObj);
         setEmailAddress(emailAddress);
         setID(id);
-        setPasswordCopy(passwordCopy);
+        
         setPasswordOriginal(passwordOriginal);
         
     }
@@ -51,7 +51,9 @@ public final class Stuff {
       //  System.out.print(personObj.dateOfBirth.toString());
         try {
              DatabaseConnection databaseConnection = new DatabaseConnection();
-        String query = "INSERT INTO StuffTable (StuffID, FirstName, LastName, PassportNumber,DateofBirth, EmailAddress,StuffType) VALUES('"+id+"','"+personObj.getFirstName()+"','"+personObj.getLastName()+"','"+personObj.getPassportNumber()+"','"+personObj.dateOfBirth.toString()+"','"+emailAddress+"','"+stuffTypeString+"')";
+        String query = "INSERT INTO StuffTable (StuffID, FirstName, LastName, PassportNumber,DateofBirth, EmailAddress,StuffType,Password)"
+                + " VALUES('"+id+"','"+personObj.getFirstName()+"','"+personObj.getLastName()+"','"+personObj.getPassportNumber()+"',"
+                + "'"+personObj.dateOfBirth.toString()+"','"+emailAddress+"','"+stuffTypeString+"','"+getPasswordOriginal()+"')";
         databaseConnection.storeData(query);
         } catch (Exception e) {
         System.out.println("Your id should be number format");
@@ -80,30 +82,18 @@ public final class Stuff {
     public void setStuffTypeString(String stuffTypeString) {
         this.stuffTypeString = stuffTypeString;
     }
-    private String emailAddress;
-    private String id;
-private Person personObj;
-private String stuffTypeString;
-
-    public String getPasswordOriginal() {
+     public String getPasswordOriginal() {
         return passwordOriginal;
     }
 
     public void setPasswordOriginal(String passwordOriginal) {
         this.passwordOriginal = passwordOriginal;
     }
-
-    public String getPasswordCopy() {
-        return passwordCopy;
-    }
-
-    public void setPasswordCopy(String passwordCopy) {
-        this.passwordCopy = passwordCopy;
-    }
+    private String emailAddress;
+    private String id;
+private Person personObj;
+private String stuffTypeString;
 private String passwordOriginal;
-private String passwordCopy;
-    
+   
 
-
-    
 }
