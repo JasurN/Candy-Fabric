@@ -6,6 +6,7 @@
 package candy.fabric;
 
 import java.awt.Color;
+import javax.swing.JFrame;
 
 /**
  *
@@ -35,6 +36,7 @@ public class MainFrame extends javax.swing.JFrame {
         ButtonForProduct = new javax.swing.JButton();
         ButtonForStore = new javax.swing.JButton();
         buttonForSettings = new javax.swing.JButton();
+        buttonForBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Main Frame");
@@ -75,23 +77,33 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        buttonForBack.setBackground(new java.awt.Color(73, 77, 78));
+        buttonForBack.setForeground(new java.awt.Color(204, 204, 204));
+        buttonForBack.setText("Go Back");
+        buttonForBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonForBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(227, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(buttonForSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonForProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonForStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonForStore, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(buttonForSettings, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                    .addComponent(ButtonForProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                    .addComponent(buttonForStaff, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                    .addComponent(ButtonForStore, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                    .addComponent(buttonForBack, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
                 .addGap(190, 190, 190))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
+                .addGap(34, 34, 34)
                 .addComponent(buttonForStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ButtonForProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -99,7 +111,9 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(ButtonForStore, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonForSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonForBack, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();
@@ -137,6 +151,17 @@ public class MainFrame extends javax.swing.JFrame {
     storeObj.setLocationRelativeTo(null);
     storeObj.setVisible(true);
     }//GEN-LAST:event_ButtonForStoreActionPerformed
+
+    private void buttonForBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForBackActionPerformed
+        // TODO add your handling code here:
+         EntryForm entryForm = new EntryForm();
+                        entryForm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        entryForm.pack();
+                        entryForm.setLocationRelativeTo(null);
+                        entryForm.setVisible(true);
+                        super.dispose();
+        
+    }//GEN-LAST:event_buttonForBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,6 +201,7 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonForProduct;
     private javax.swing.JButton ButtonForStore;
+    private javax.swing.JButton buttonForBack;
     private javax.swing.JButton buttonForSettings;
     private javax.swing.JButton buttonForStaff;
     private javax.swing.JProgressBar jProgressBar1;
