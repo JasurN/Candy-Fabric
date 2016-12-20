@@ -178,6 +178,11 @@ public class StaffManage extends javax.swing.JFrame {
                 jTextForIDMouseClicked(evt);
             }
         });
+        jTextForID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextForIDActionPerformed(evt);
+            }
+        });
 
         jTextForDateOfBirth.setBackground(new java.awt.Color(204, 204, 204));
         jTextForDateOfBirth.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
@@ -641,6 +646,10 @@ public class StaffManage extends javax.swing.JFrame {
     super.dispose();
     
     }//GEN-LAST:event_buttonForBackActionPerformed
+
+    private void jTextForIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextForIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextForIDActionPerformed
 
     /**
      * @param args the command line arguments
