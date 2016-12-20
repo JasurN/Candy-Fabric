@@ -6,7 +6,12 @@
 package candy.fabric;
 
 import java.awt.Color;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -42,6 +47,12 @@ public class EntryForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         textFieldForUserId.setBackground(new java.awt.Color(204, 204, 204));
+        textFieldForUserId.setText("18782");
+        textFieldForUserId.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                textFieldForUserIdMouseClicked(evt);
+            }
+        });
 
         labelForUserID.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         labelForUserID.setForeground(new java.awt.Color(204, 204, 204));
@@ -63,13 +74,23 @@ public class EntryForm extends javax.swing.JFrame {
         buttonForDefaultAccount.setBackground(new java.awt.Color(73, 77, 78));
         buttonForDefaultAccount.setForeground(new java.awt.Color(204, 204, 204));
         buttonForDefaultAccount.setText("Default Account");
+        buttonForDefaultAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonForDefaultAccountActionPerformed(evt);
+            }
+        });
 
         labelForNameOfFabric.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         labelForNameOfFabric.setForeground(new java.awt.Color(204, 204, 204));
         labelForNameOfFabric.setText("Fabric Management System");
 
         passwordFieldForPassword.setBackground(new java.awt.Color(204, 204, 204));
-        passwordFieldForPassword.setText("********");
+        passwordFieldForPassword.setText("alloallo");
+        passwordFieldForPassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                passwordFieldForPasswordMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,13 +142,67 @@ public class EntryForm extends javax.swing.JFrame {
 
     private void buttonForLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForLogInActionPerformed
         // TODO add your handling code here:
-          MainFrame mainFrame = new MainFrame();
-        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       mainFrame.pack();
-    mainFrame.setLocationRelativeTo(null);
-    mainFrame.setVisible(true);
-    super.dispose();
+       
+ DatabaseConnection dbc = new DatabaseConnection();
+        
+        String query = "SELECT StuffID,  StuffType, Password FROM StuffTable WHERE StuffID = '"+textFieldForUserId.getText()+"'";
+        ResultSet resultSet = dbc.getData(query);
+        if(textFieldForUserId.getText().equals("admin")){
+             String passTextFromJframe = new String(passwordFieldForPassword.getPassword());
+             if(passTextFromJframe.equals("admin")){
+                 openMain();
+             }
+        }else{
+            try {
+            while(resultSet.next()){
+             int usernameFromDatabase= resultSet.getInt("StuffID");
+              String passwordFromDatabase = resultSet.getString("Password");
+              if(usernameFromDatabase==Integer.parseInt(textFieldForUserId.getText())){
+                  
+                  String passTextFromJframe = new String(passwordFieldForPassword.getPassword());
+                  if(passwordFromDatabase.equals(passTextFromJframe)){
+                        openMain();
+                  }
+              }else{
+                  JOptionPane.showMessageDialog(null, "Sorry! your Stuff ID or password entered wrong\nPlease re-enter them");
+              }
+              
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(EntryForm.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(Exception e ){
+           JOptionPane.showMessageDialog(null, "There is no such user in our system!");
+        }
+            
+        }
+        
+        
+        
     }//GEN-LAST:event_buttonForLogInActionPerformed
+
+    private void buttonForDefaultAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForDefaultAccountActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "The superadmin account info\nusername - admin\npassword - admin");
+    }//GEN-LAST:event_buttonForDefaultAccountActionPerformed
+
+    private void textFieldForUserIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textFieldForUserIdMouseClicked
+        // TODO add your handling code here:
+        if(textFieldForUserId.getText().equals("18782"))
+        {
+            textFieldForUserId.setText("");
+            textFieldForUserId.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_textFieldForUserIdMouseClicked
+
+    private void passwordFieldForPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordFieldForPasswordMouseClicked
+        // TODO add your handling code here:
+        String passTextFromJframe = new String(passwordFieldForPassword.getPassword());
+        if(passTextFromJframe.equals("alloallo"))
+        {
+            passwordFieldForPassword.setText("");
+            passwordFieldForPassword.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_passwordFieldForPasswordMouseClicked
 
     /**
      * @param args the command line arguments
@@ -163,7 +238,16 @@ public class EntryForm extends javax.swing.JFrame {
             }
         });
     }
-
+private void openMain(){
+    JOptionPane.showMessageDialog(null, "You have entered successfully!");
+    MainFrame mainFrame = new MainFrame();
+                        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        mainFrame.pack();
+                        mainFrame.setLocationRelativeTo(null);
+                        mainFrame.setVisible(true);
+                        super.dispose();
+                         
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonForDefaultAccount;
     private javax.swing.JButton buttonForLogIn;
