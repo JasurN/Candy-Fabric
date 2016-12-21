@@ -176,7 +176,6 @@ public class StaffManage extends javax.swing.JFrame {
         labelForID.setForeground(new java.awt.Color(204, 204, 204));
         labelForID.setText("ID");
 
-        jTextForID.setEditable(false);
         jTextForID.setBackground(new java.awt.Color(204, 204, 204));
         jTextForID.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         jTextForID.setForeground(new java.awt.Color(0, 153, 153));

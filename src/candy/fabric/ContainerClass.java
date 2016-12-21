@@ -65,10 +65,13 @@ public class ContainerClass {
     }
     
     
-    public static int valOne=0;
-    public static int valTwo=0;
-    public static int valThree=0;
+    public static int valOne=204;
+    public static int valTwo=204;
+    public static int valThree=204;
+    
     public static int valOneButton=0;
     public static int valTwoButton=0;
+    
+    public static int valOneForlabel;
     
 }
