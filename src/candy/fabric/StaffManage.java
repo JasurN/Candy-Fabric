@@ -10,10 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JFrame;
 
-/**
- *
- * @author Acer-Aspire
- */
+
+
 public class StaffManage extends javax.swing.JFrame {
 
     /**
@@ -21,7 +19,8 @@ public class StaffManage extends javax.swing.JFrame {
      */
     public StaffManage() {
         initComponents();
-             getContentPane().setBackground(new Color( 59 , 63 , 66));
+        
+             getContentPane().setBackground(new Color( ContainerClass.valOne , ContainerClass.valTwo , ContainerClass.valThree));
 
     }
 
@@ -91,6 +90,7 @@ public class StaffManage extends javax.swing.JFrame {
         buttonForCreate.setBackground(new java.awt.Color(73, 77, 78));
         buttonForCreate.setForeground(new java.awt.Color(204, 204, 204));
         buttonForCreate.setText("Add Stuff");
+        buttonForCreate.setPreferredSize(new java.awt.Dimension(82, 35));
         buttonForCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonForCreateActionPerformed(evt);
@@ -101,6 +101,7 @@ public class StaffManage extends javax.swing.JFrame {
         buttonForSearch.setForeground(new java.awt.Color(204, 204, 204));
         buttonForSearch.setText("Search Stuff");
         buttonForSearch.setToolTipText("");
+        buttonForSearch.setPreferredSize(new java.awt.Dimension(82, 35));
         buttonForSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonForSearchActionPerformed(evt);
@@ -110,6 +111,7 @@ public class StaffManage extends javax.swing.JFrame {
         buttonForDelete.setBackground(new java.awt.Color(73, 77, 78));
         buttonForDelete.setForeground(new java.awt.Color(204, 204, 204));
         buttonForDelete.setText("Delete Stuff");
+        buttonForDelete.setPreferredSize(new java.awt.Dimension(82, 35));
         buttonForDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonForDeleteActionPerformed(evt);
@@ -120,7 +122,7 @@ public class StaffManage extends javax.swing.JFrame {
         buttonForUpdate.setForeground(new java.awt.Color(204, 204, 204));
         buttonForUpdate.setText("Update Stuff");
         buttonForUpdate.setActionCommand("S");
-        buttonForUpdate.setPreferredSize(new java.awt.Dimension(73, 28));
+        buttonForUpdate.setPreferredSize(new java.awt.Dimension(82, 35));
         buttonForUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonForUpdateActionPerformed(evt);
@@ -130,6 +132,7 @@ public class StaffManage extends javax.swing.JFrame {
         buttonForShowAllStuff.setBackground(new java.awt.Color(73, 77, 78));
         buttonForShowAllStuff.setForeground(new java.awt.Color(204, 204, 204));
         buttonForShowAllStuff.setText("Show All Stuff");
+        buttonForShowAllStuff.setPreferredSize(new java.awt.Dimension(82, 35));
         buttonForShowAllStuff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonForShowAllStuffActionPerformed(evt);
@@ -169,9 +172,11 @@ public class StaffManage extends javax.swing.JFrame {
             }
         });
 
+        labelForID.setBackground(new java.awt.Color(59, 63, 66));
         labelForID.setForeground(new java.awt.Color(204, 204, 204));
         labelForID.setText("ID");
 
+        jTextForID.setEditable(false);
         jTextForID.setBackground(new java.awt.Color(204, 204, 204));
         jTextForID.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         jTextForID.setForeground(new java.awt.Color(0, 153, 153));
@@ -302,10 +307,16 @@ public class StaffManage extends javax.swing.JFrame {
         jTextForMessages.setBackground(new java.awt.Color(204, 204, 204));
         jTextForMessages.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jTextForMessages.setForeground(new java.awt.Color(153, 255, 102));
+        jTextForMessages.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextForMessagesActionPerformed(evt);
+            }
+        });
 
         buttonForBack.setBackground(new java.awt.Color(73, 77, 78));
         buttonForBack.setForeground(new java.awt.Color(204, 204, 204));
         buttonForBack.setText("Back ");
+        buttonForBack.setPreferredSize(new java.awt.Dimension(82, 35));
         buttonForBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonForBackActionPerformed(evt);
@@ -326,7 +337,8 @@ public class StaffManage extends javax.swing.JFrame {
                                 .addComponent(labelForRirstName, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(labelForID, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(labelForDateOfBirth, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(labelForLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labelForLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelForEmail))
                         .addGap(65, 65, 65)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jTextForDateOfBirth, javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,34 +355,29 @@ public class StaffManage extends javax.swing.JFrame {
                                     .addComponent(dateFormatLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabelForPassword)
                                     .addComponent(jLabelForPasswordConfirm))
-                                .addGap(0, 20, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboToSelecType, 0, 149, Short.MAX_VALUE)
-                            .addComponent(jPassFieldForPassword)
-                            .addComponent(jPasswordFieldForPassworkConfirm))
-                        .addGap(36, 36, 36))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelForEmail)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabelForMessages)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextForMessages))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(buttonForCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(buttonForSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(buttonForDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(buttonForUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(buttonForShowAllStuff, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
-                                    .addComponent(buttonForBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jLabelForMessages)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextForMessages))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(6, 6, 6)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jComboToSelecType, 0, 149, Short.MAX_VALUE)
+                        .addComponent(jPassFieldForPassword)
+                        .addComponent(jPasswordFieldForPassworkConfirm))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(buttonForSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonForShowAllStuff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonForBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonForCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonForUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonForDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -389,48 +396,54 @@ public class StaffManage extends javax.swing.JFrame {
                     .addComponent(jPassFieldForPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelForLastName)
-                            .addComponent(jTextForLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(11, 11, 11)
+                        .addComponent(labelForLastName))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelForPasswordConfirm)
-                            .addComponent(jPasswordFieldForPassworkConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jPasswordFieldForPassworkConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextForLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextForDateOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelForDateOfBirth)
-                            .addComponent(dateFormatLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelForPassportNumber)
-                            .addComponent(jTextForPassport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelForEmail)
-                            .addComponent(jTextForEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(dateFormatLabel)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(8, 8, 8)
+                                        .addComponent(labelForDateOfBirth)))
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextForDateOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextForPassport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelForPassportNumber))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextForEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelForEmail))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelForMessages)
                             .addComponent(jTextForMessages, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonForCreate)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(buttonForCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonForSearch)
+                        .addComponent(buttonForSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonForDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonForUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonForShowAllStuff)
+                        .addComponent(buttonForShowAllStuff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonForBack)
+                        .addComponent(buttonForBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12))))
         );
 
@@ -463,18 +476,7 @@ public class StaffManage extends javax.swing.JFrame {
 
     private void buttonForCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForCreateActionPerformed
         // TODO add your handling code here:
-        String stuffTypeString = jComboToSelecType.getSelectedItem().toString();
-    String passTextOriginal = new String(jPassFieldForPassword.getPassword());
-     String passTextCopy = new String(jPasswordFieldForPassworkConfirm.getPassword());
-       
-        if(passTextOriginal.equals(passTextCopy)){
-             DateOfBirth dateOfBirth = new DateOfBirth(jTextForDateOfBirth.getText());
-        Person person = new Person(jTextForFirstName.getText(), jTextForLastName.getText(), jTextForPassport.getText(), dateOfBirth);
-        Stuff stuff = new Stuff(person, jTextForEmail.getText(), jTextForID.getText(),stuffTypeString,passTextOriginal);
-        stuff.addStuff();
-        jTextForMessages.setText("Stuff Added Successfully");
-        }
-         makeFormEmpty();
+       addStuff();
     }//GEN-LAST:event_buttonForCreateActionPerformed
 
     private void jTextForFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextForFirstNameActionPerformed
@@ -562,7 +564,7 @@ public class StaffManage extends javax.swing.JFrame {
         
         try
         {
-           // System.out.println("Stuff ID\tFirst Name\tLast Name\tStuff Type");
+          
             int i=0;
             
                 while (resultSet.next()) 
@@ -574,8 +576,8 @@ public class StaffManage extends javax.swing.JFrame {
                     infoTable.setValueAt(resultSet.getString(3), i, 2);
                     infoTable.setValueAt(resultSet.getString(4), i, 3);
                     i++;
-//System.out.println(resultSet.getString(1)+"\t"+resultSet.getString(2)+"\t"+resultSet.getString(3));
-jTextForMessages.setText("Stuff found");
+
+                    jTextForMessages.setText("Stuff found");
                 }
                     
         }
@@ -658,6 +660,10 @@ jTextForMessages.setText("Stuff found");
     private void jTextForIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextForIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextForIDActionPerformed
+
+    private void jTextForMessagesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextForMessagesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextForMessagesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -750,6 +756,21 @@ private void makeFormEmpty() {
               jTextForDateOfBirth.setText("");
               jTextForEmail.setText("");   
     }
+
+private void addStuff(){
+     String stuffTypeString = jComboToSelecType.getSelectedItem().toString();
+    String passTextOriginal = new String(jPassFieldForPassword.getPassword());
+     String passTextCopy = new String(jPasswordFieldForPassworkConfirm.getPassword());
+       
+        if(passTextOriginal.equals(passTextCopy)){
+             DateOfBirth dateOfBirth = new DateOfBirth(jTextForDateOfBirth.getText());
+        Person person = new Person(jTextForFirstName.getText(), jTextForLastName.getText(), jTextForPassport.getText(), dateOfBirth);
+        Stuff stuff = new Stuff(person, jTextForEmail.getText(), jTextForID.getText(),stuffTypeString,passTextOriginal);
+        stuff.addStuff();
+        jTextForMessages.setText("Stuff Added Successfully");
+        }
+         makeFormEmpty();
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonForBack;
     private javax.swing.JButton buttonForCreate;

@@ -14,10 +14,7 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Acer-Aspire
- */
+
 public class EntryForm extends javax.swing.JFrame {
 
     /**
@@ -25,7 +22,7 @@ public class EntryForm extends javax.swing.JFrame {
      */
     public EntryForm() {
         initComponents();
-        getContentPane().setBackground(new Color( 59 , 63 , 66));
+         getContentPane().setBackground(new Color( ContainerClass.valOne , ContainerClass.valTwo , ContainerClass.valThree));
     }
 
     /**
@@ -309,6 +306,7 @@ private void openMain(){
                         mainFrame.pack();
                         mainFrame.setLocationRelativeTo(null);
                         mainFrame.setVisible(true);
+                        
                         super.dispose();
                          
 }

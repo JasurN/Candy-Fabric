@@ -6,10 +6,8 @@
 package candy.fabric;
 
 
-/**
- *
- * @author Acer-Aspire
- */
+
+
 public final class Stuff {
 
     /**

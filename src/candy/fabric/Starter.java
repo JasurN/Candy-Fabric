@@ -7,11 +7,10 @@
 package candy.fabric;
 
 import javax.swing.JFrame;
+import javax.swing.UIManager;
 
-/**
- *
- * @author Acer-Aspire
- */
+
+
  class Starter {
 
     /**
@@ -19,11 +18,19 @@ import javax.swing.JFrame;
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        try { 
+    UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"); 
+      ContainerClass containerClass= new ContainerClass();
        EntryForm entryForm = new EntryForm();
         entryForm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        entryForm.pack();
     entryForm.setLocationRelativeTo(null);
     entryForm.setVisible(true);
+    
+} catch (Exception ex) { 
+    ex.printStackTrace(); 
+}
+       
       
        
     }

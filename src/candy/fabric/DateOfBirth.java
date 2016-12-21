@@ -5,10 +5,8 @@
  */
 package candy.fabric;
 
-/**
- *
- * @author Acer-Aspire
- */
+
+
 public class DateOfBirth {
 
     public int getYear() {

@@ -18,8 +18,10 @@ public class MainFrame extends javax.swing.JFrame {
      * Creates new form MainFrame
      */
     public MainFrame() {
+       
         initComponents();
-        getContentPane().setBackground(new Color( 59 , 63 , 66));
+         getContentPane().setBackground(new Color( ContainerClass.valOne , ContainerClass.valTwo , ContainerClass.valThree));
+         
     }
 
     /**
@@ -36,9 +38,11 @@ public class MainFrame extends javax.swing.JFrame {
         ButtonForProduct = new javax.swing.JButton();
         buttonForBack = new javax.swing.JButton();
         buttonForExit = new javax.swing.JButton();
+        buttonForSettings = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Main Frame");
+        setBackground(new java.awt.Color(59, 63, 66));
 
         buttonForStaff.setBackground(new java.awt.Color(73, 77, 78));
         buttonForStaff.setForeground(new java.awt.Color(204, 204, 204));
@@ -76,17 +80,28 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        buttonForSettings.setBackground(new java.awt.Color(73, 77, 78));
+        buttonForSettings.setForeground(new java.awt.Color(204, 204, 204));
+        buttonForSettings.setText("Settings");
+        buttonForSettings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonForSettingsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(227, Short.MAX_VALUE)
+                .addContainerGap(228, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(buttonForExit, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                    .addComponent(ButtonForProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                    .addComponent(buttonForStaff, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                    .addComponent(buttonForBack, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
+                    .addComponent(buttonForBack, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(buttonForExit, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                        .addComponent(ButtonForProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                        .addComponent(buttonForStaff, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                        .addComponent(buttonForSettings, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)))
                 .addGap(190, 190, 190))
         );
         layout.setVerticalGroup(
@@ -97,10 +112,12 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ButtonForProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonForBack, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonForSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonForBack, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonForExit, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
@@ -108,7 +125,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void ButtonForProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonForProductActionPerformed
         // TODO add your handling code here:
-     ProductLast productObj = new ProductLast();
+     ProductManage productObj = new ProductManage();
     productObj.pack();
     productObj.setLocationRelativeTo(null);
     productObj.setVisible(true);
@@ -143,6 +160,15 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_buttonForExitActionPerformed
+
+    private void buttonForSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForSettingsActionPerformed
+        // TODO add your handling code here:
+        Settings   settingsObj = new Settings();
+    settingsObj.pack();
+    settingsObj.setLocationRelativeTo(null);
+    settingsObj.setVisible(true);
+         super.dispose();
+    }//GEN-LAST:event_buttonForSettingsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,6 +209,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton ButtonForProduct;
     private javax.swing.JButton buttonForBack;
     private javax.swing.JButton buttonForExit;
+    private javax.swing.JButton buttonForSettings;
     private javax.swing.JButton buttonForStaff;
     private javax.swing.JProgressBar jProgressBar1;
     // End of variables declaration//GEN-END:variables

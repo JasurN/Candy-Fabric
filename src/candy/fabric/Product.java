@@ -5,10 +5,8 @@
  */
 package candy.fabric;
 
-/**
- *
- * @author Moni
- */
+
+
 public class Product {
  
    
